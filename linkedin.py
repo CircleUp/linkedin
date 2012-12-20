@@ -44,9 +44,6 @@ class LinkedinAPI(object):
         self.access_token_url = 'https://api.linkedin.com/uas/oauth/accessToken'
         self.authorize_url = 'https://api.linkedin.com/uas/oauth/authorize'
 
-        if self.callback_url:
-            self.request_token_url = '%s?oauth_callback=%s' % (self.request_token_url, self.callback_url)
-
         self.api_base = 'http://api.linkedin.com'
         self.api_version = 'v1'
         self.api_url = '%s/%s/' % (self.api_base, self.api_version)
@@ -92,7 +89,8 @@ class LinkedinAPI(object):
             print auth_url
         """
 
-        resp, content = self.client.request(self.request_token_url, 'GET')
+        body = urllib.urlencode({'oauth_callback':self.callback_url}) if self.callback_url else None
+        resp, content = self.client.request(self.request_token_url, 'POST', body=body)
 
         status = int(resp['status'])
         if status != 200:
