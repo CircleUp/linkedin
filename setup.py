@@ -4,7 +4,7 @@ from setuptools import setup
 
 setup(
     name='linkedin',
-    version='0.1.3.circleup-patch',
+    version='0.1.2.circleup-patch',
     install_requires=['httplib2', 'oauth2', 'simplejson'],
     author='Mike Helmick',
     author_email='mikehelmick@me.com',
