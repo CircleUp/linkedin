@@ -44,7 +44,7 @@ class LinkedinAPI(object):
         self.access_token_url = 'https://api.linkedin.com/uas/oauth/accessToken'
         self.authorize_url = 'https://api.linkedin.com/uas/oauth/authorize'
 
-        self.api_base = 'http://api.linkedin.com'
+        self.api_base = 'https://api.linkedin.com'
         self.api_version = 'v1'
         self.api_url = '%s/%s/' % (self.api_base, self.api_version)
 
